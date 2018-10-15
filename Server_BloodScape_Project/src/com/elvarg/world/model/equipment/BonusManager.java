@@ -37,11 +37,14 @@ public class BonusManager {
 			}
 		}
 		for (int i = 0; i < STRING_ID.length; i++) {
+			//Attack Stab, Slash, Crush, Magic, Ranged
 			if (i <= 4) {
 				player.getBonusManager().attackBonus[i] = bonuses[i];
+			//Defense Stab, Slash, Crush, Magic, Ranged
 			} else if (i <= 9) {
 				int index = i - 5;
 				player.getBonusManager().defenceBonus[index] = bonuses[i];
+			//Melee Str, Magic Str, Ranged Str, Prayer Bonus
 			} else {
 				int index = i - 10;
 				player.getBonusManager().otherBonus[index] = bonuses[i];
@@ -95,7 +98,7 @@ public class BonusManager {
 
 	private double[] defenceBonus = new double[5];
 
-	private double[] otherBonus = new double[2];
+	private double[] otherBonus = new double[4];
 
 	private static final String[][] STRING_ID = {
 			{"1675", "Stab"},
@@ -110,8 +113,10 @@ public class BonusManager {
 			{"1683", "Magic"},
 			{"1684", "Range"},
 
-			{"1686", "Strength"},
-			{"1687", "Prayer"},
+			{"1686", "Melee Strength"},
+			{"1687", "Magic Strength"},
+			{"16527", "Ranged Strength"},
+			{"16528", "Prayer"},
 	};
 
 	public static final int 
@@ -128,7 +133,9 @@ public class BonusManager {
 	DEFENCE_RANGE = 4,
 
 	BONUS_STRENGTH = 0,
-	BONUS_PRAYER = 1;
+	BONUS_RANGED_STRENGTH = 1,
+	BONUS_MAGIC_STENGTH = 2,
+	BONUS_PRAYER = 3;
 
 	private static final int MELEE_MAXHIT_FRAME = 15115;
 	private static final int RANGED_MAXHIT_FRAME = 15116;
